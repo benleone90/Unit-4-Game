@@ -2,3 +2,9 @@ body {
     background-image: url(/assets/images/what-the-hex.png);
     background-color: #cccccc;
 }
+
+.crystal-Img {
+    height: 200px;
+    widows: 200px;
+    border: red 2px solid;
+}
