@@ -37,8 +37,7 @@ for (var i = 0; i < 4; i++) {
 
   imgCrystal.attr(
     "src",
-    "/assets/images/01crystal.png",
-    "/assests/images/02crystal.jpg"
+    "./assets/images/" + i + "crystal.jpg",
   );
 
   imgCrystal.attr("crystalValue", ranNums[i]);
