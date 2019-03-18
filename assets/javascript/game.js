@@ -41,7 +41,7 @@ for (var i = 0; i < 4; i++) {
     "/assests/images/02crystal.jpg"
   );
 
-  /* imgCrystal.attr("crystalValue", numberOptions[i]); */
+  imgCrystal.attr("crystalValue", ranNums[i]);
 
   $("#crystalImg").append(imgCrystal);
 }
