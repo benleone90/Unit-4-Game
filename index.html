@@ -14,14 +14,25 @@
         <title>The Magic Crystal Game</title>
     </head>
     <body>
-        <h1>The Crystal Game</h1>
+        <div class="jumbotron text-center">
+        <h1>The Magic Crystal Game</h1>
         <br>
         <h4>Click on the crystals to reach the Target Number</h4>
         <br>
-        <h5>Target Number: <span id="numberGuess"></span></h5>
+        <h4>Target Number: <span id="numberGuess"></span></h4>
         <br>
         <div id="crystalImg"></div>
-       
+        </div>
+        <div class="container">
+        <div class="row">    
+        <h5 class="col-4">Counter: <span id="counter"></span></h5>
+        <br>
+        <h5 class="col-4">Won: <span id="won"></span></h5>
+        <br>
+        <h5 class="col-4">Loss: <span id="loss"></span></h5>
+        </div>
+        </div>
+
         <!-- jQuery CDN Link -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         

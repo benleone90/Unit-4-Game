@@ -1,10 +1,22 @@
-body {
-    background-image: url(/assets/images/what-the-hex.png);
+body,
+.jumbotron
+ {
+    background-image: url(../images/what-the-hex.png);
     background-color: #cccccc;
 }
 
 .crystal-Img {
     height: 200px;
     widows: 200px;
-    border: red 2px solid;
+    border: steelblue 2px solid;
+}
+
+.col-4 {
+    text-align: center;
+    border: black 2px dotted;
+}
+
+h5 {
+    font-size: 24pt;
+    background-color: #ffffff;
 }

@@ -1,17 +1,22 @@
+/* Create Wins, Losses and Counter variable */
+var won = 0;
+var loss = 0;
+var counter = 0;
+var numberGuess;
+var ranNums;
+
+/* Display counters at start of game */
+$("#counter").text(counter);
+$("#won").text(won);
+$("#loss").text(loss);
+
 /* Generate random number between 
 a minimum and maximum range. */
 function randInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-/* Assign the minimum of 19 
-and maximum of 120 for the random number */
-var numberGuess = randInt(19, 120);
-console.log(numberGuess);
-
-/* Input random value into the HTML */
-$("#numberGuess").text(numberGuess);
-
+/* Function to shuffle crystal value array */
 function shuffle(array) {
   var i = array.length,
     j = 0,
@@ -27,20 +32,57 @@ function shuffle(array) {
   return array;
 }
 
-var ranNums = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-console.log(ranNums);
+/* Function to start a new game */
+function newGame() {
+  $("#crystalImg").empty();
 
-for (var i = 0; i < 4; i++) {
-  var imgCrystal = $("<img>");
+  /* Select guess between 19-120 inclusive */
+  numberGuess = randInt(19, 120);
+  $("#numberGuess").text(numberGuess);
 
-  imgCrystal.addClass("crystal-Img");
+  /* Assign ranNums a shuffled array */
+  ranNums = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
 
-  imgCrystal.attr(
-    "src",
-    "./assets/images/" + i + "crystal.jpg",
-  );
+  /* Attach first four array indexes to 
+  crystal images and put into HTML */
+  for (var i = 0; i < 4; i++) {
+    var imgCrystal = $("<img>");
 
-  imgCrystal.attr("crystalValue", ranNums[i]);
+    imgCrystal.addClass("crystal-Img");
 
-  $("#crystalImg").append(imgCrystal);
+    imgCrystal.attr("src", "./assets/images/" + i + "crystal.png");
+
+    imgCrystal.attr("crystalValue", ranNums[i]);
+
+    $("#crystalImg").append(imgCrystal);
+  }
+
+  counter = 0;
+  $("#counter").text(counter);
+
+  /* Create on-click function to add values to counter
+and check if player won or lost */
+  $(".crystal-Img").on("click", function() {
+    var crystalValue = $(this).attr("crystalValue");
+    crystalValue = parseInt(crystalValue);
+    counter += crystalValue;
+    $("#counter").text(counter);
+
+    if (counter === numberGuess) {
+      $("#counter").text(counter);
+      alert("You Win!");
+      won++;
+      $("#won").text(won);
+      newGame();
+    } else if (counter >= numberGuess) {
+      $("#counter").text(counter);
+      alert("You Lose!");
+      loss++;
+      $("#loss").text(loss);
+      newGame();
+    }
+  });
 }
+
+/* Start a new game */
+newGame();
