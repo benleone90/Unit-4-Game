@@ -13,4 +13,4 @@ If the player equals the displayed number, they win; if they exceed the number, 
 * Displaying counter with final value before win/loss alert pops up.
 
 ## Screenshot
-![Screenshot](assets\images\screenshot.PNG)
+![Screenshot](./assets/images/screenshot.PNG)
